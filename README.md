@@ -15,6 +15,15 @@ brew install httpflow
 
 ### Linux
 
+Forests oneliner
+
+```
+
+apt-get install -y libpcap-dev zlib1g-dev libpcre3 libpcre3-dev && git clone https://git.sequentialread.com/forest/httpflow && cd httpflow &&  make && make install
+
+```
+
+
 * Install [zlib](http://www.zlib.net/), [pcap](http://www.tcpdump.org/), [pcre](http://pcre.org/)
 
 ```bash
