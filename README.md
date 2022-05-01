@@ -18,7 +18,7 @@ brew install httpflow
 Forests oneliner for debian / ubuntu
 
 ```
-apt-get install -y libpcap-dev zlib1g-dev libpcre3 libpcre3-dev && git clone https://git.sequentialread.com/forest/httpflow && cd httpflow &&  make && make install
+apt-get install -y g++ libpcap-dev zlib1g-dev libpcre3 libpcre3-dev && git clone https://git.sequentialread.com/forest/httpflow && cd httpflow &&  make && make install
 
 ```
 
