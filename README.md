@@ -15,7 +15,7 @@ brew install httpflow
 Forests oneliner for Amazon Linux 2
 
 ```
-yum install -y libpcap-devel zlib-devel pcre-devel && git clone ssh://git@stash.corp.code42.com:7999/~forest.johnson/httpflow.git && cd httpflow &&  make && make install
+yum install -y gcc-c++  libpcap-devel zlib-devel pcre-devel && git clone ssh://git@stash.corp.code42.com:7999/~forest.johnson/httpflow.git && cd httpflow &&  make && make install && mv /usr/local/bin/httpflow /usr/bin/httpflow
 
 ```
 
