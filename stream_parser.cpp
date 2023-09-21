@@ -260,7 +260,7 @@ std::ostream &operator<<(std::ostream &out, const stream_parser &parser) {
         std::string non_const_request_body;
         std::string new_body;
         non_const_request_body.assign(parser.body[HTTP_REQUEST]);
-        if (gzip_decompress(&non_const_request_body, new_body)) {
+        if (gzip_decompress(non_const_request_body, new_body)) {
             out << new_body;
         } else {
             out << ANSI_COLOR_RED << "[decompress error]" << ANSI_COLOR_RESET << std::endl;
