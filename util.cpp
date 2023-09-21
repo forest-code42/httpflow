@@ -51,7 +51,7 @@ std::string timeval2tr(const struct timeval *ts) {
 
 #define GZIP_CHUNK 16384
 
-bool gzip_decompress(const std::string &src, std::string &dst) {
+bool gzip_decompress(std::string &src, std::string &dst) {
     z_stream zs;
     memset(&zs, 0, sizeof(zs));
 
