@@ -15,17 +15,25 @@ brew install httpflow
 
 ### Linux
 
+
+Forests oneliner for Amazon Linux 2
+
+```
+yum install -y libpcap-devel zlib-devel pcre-devel && git clone ssh://git@stash.corp.code42.com:7999/~forest.johnson/httpflow.git && cd httpflow &&  make && make install
+
+```
+
 Forests oneliner for debian / ubuntu
 
 ```
-apt-get install -y g++ libpcap-dev zlib1g-dev libpcre3 libpcre3-dev && git clone https://git.sequentialread.com/forest/httpflow && cd httpflow &&  make && make install
+apt-get install -y g++ libpcap-dev zlib1g-dev libpcre3 libpcre3-dev && git clone ssh://git@stash.corp.code42.com:7999/~forest.johnson/httpflow.git && cd httpflow &&  make && make install
 
 ```
 
 Forests oneliner for alpine linux
 
 ```
-apk update && apk add make g++ libpcap-dev zlib-dev pcre pcre-dev && git clone https://git.sequentialread.com/forest/httpflow && cd httpflow &&  make && make install
+apk update && apk add make g++ libpcap-dev zlib-dev pcre pcre-dev && git clone ssh://git@stash.corp.code42.com:7999/~forest.johnson/httpflow.git && cd httpflow &&  make && make install
 ```
 
 
