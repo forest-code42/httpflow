@@ -6,12 +6,19 @@
 #include <cstdio>
 #include <sstream>
 #include <zlib.h>
+#include <stdint.h>
 
 struct packet_info {
+    long ts_usc;
     std::string src_addr;
     std::string dst_addr;
-    bool        is_fin;
+    bool is_syn;
+    bool is_fin;
+    bool is_rst;
     std::string body;
+    uint32_t seq;
+    uint32_t nxtseq;
+    uint32_t ack;
 };
 
 extern bool is_atty;

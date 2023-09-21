@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/six-ddc/httpflow.svg?branch=master)](https://travis-ci.org/six-ddc/httpflow)
 
-![](https://github.com/six-ddc/httpflow/blob/master/demo.gif?raw=true)
+[![asciicast](https://asciinema.org/a/scdzwLDNytSPHtpbu1ECSv5FV.svg)](https://asciinema.org/a/scdzwLDNytSPHtpbu1ECSv5FV)
 
 ## Installation
 
@@ -53,22 +53,22 @@ or directly download [Release](https://github.com/six-ddc/httpflow/releases) bin
 ## Usage
 
 ```
-libpcap version libpcap version 1.8.1 -- Apple version 67.60.1
-httpflow version 0.0.5
+libpcap version libpcap version 1.9.1
+httpflow version 0.0.9
 
-Usage: httpflow [-i interface | -r pcap-file] [-f packet-filter] [-u url-filter] [-w output-path]
+Usage: httpflow [-i interface | -r pcap-file] [-u url-filter] [-w output-path] [expression]
 
-  -i interface      Listen on interface
+  -i interface      Listen on interface, This is same as tcpdump 'interface'
   -r pcap-file      Read packets from file (which was created by tcpdump with the -w option)
                     Standard input is used if file is '-'
-  -f packet-filter  Selects which packets will be dumped
-                    If filter expression is given, only packets for which expression is 'true' will be dumped
-                    For the expression syntax, see pcap-filter(7)
   -u url-filter     Matches which urls will be dumped
   -w output-path    Write the http request and response to a specific directory
 
-  For more information, see https://github.com/six-ddc/httpflow
+  expression        Selects which packets will be dumped, The format is the same as tcpdump's 'expression' argument
+                    If filter expression is given, only packets for which expression is 'true' will be dumped
+                    For the expression syntax, see pcap-filter(7)
 
+  For more information, see https://github.com/six-ddc/httpflow
 ```
 
 * Capture default interface
@@ -88,16 +88,16 @@ Usage: httpflow [-i interface | -r pcap-file] [-f packet-filter] [-u url-filter]
 ```bash
 # If no expression is given, all packets on the net will be dumped.
 # For the expression syntax, see pcap-filter(7).
-> httpflow -f 'tcp port 80 and host baidu.com'
+> httpflow host httpbin.org or host baidu.com
 ```
 
 * Use the regexp to filter request urls
 
 ```bash
-> httpflow -u '(google.com|httpbin.org)/.*/get'
+> httpflow -u '/user/[0-9]+'
 ```
 
-* Read packets from file
+* Read packets from pcap-file
 
 ```bash
 # tcpdump -w a.cap
@@ -108,4 +108,10 @@ Usage: httpflow [-i interface | -r pcap-file] [-f packet-filter] [-u url-filter]
 
 ```bash
 > tcpdump -w - | httpflow -r -
+```
+
+* Write the HTTP request and response to directory `/tmp/http`
+
+```bash
+> httpflow -w /tmp/http
 ```
